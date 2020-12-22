@@ -1,0 +1,15 @@
+[buildPlans.pataha]
+family = "PATAHA"
+spacing = "normal"
+serifs = "sans"
+
+  [buildPlans.pataha.variants]
+  inherits = "ss04"
+
+    [buildPlans.pataha.variants.design]
+    f = "extended-crossbar-at-x-height"
+    t = "cross"
+
+    [buildPlans.pataha.variants.italic]
+    f = "tailed"
+    t = "flat-hook"
