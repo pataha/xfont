@@ -1,4 +1,4 @@
-name: ESPHome firmware build
+name: Font build
 on: 
   push:
     branches:
@@ -21,7 +21,7 @@ jobs:
         uses: actions/checkout@v2
       
       - name: Build font
-        run: avivace/iosevka-build ttf::pataha
+        run: /run.sh ttf::pataha
       
       - name: Test
         run: ls -la ./dist
