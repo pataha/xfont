@@ -1,0 +1,41 @@
+name: ESPHome firmware build
+on: 
+  push:
+    branches:
+      - master
+
+defaults:
+  run:
+    shell: bash
+    # working-directory: ~/esphome
+
+
+jobs:
+  build:
+    name: Build
+    runs-on: ubuntu-20.04
+    container: avivace/iosevka-build
+    
+    env:
+      FONT_VERSION: 0.1
+
+    # outputs:
+    #   artifact-name: ${{ steps.set-artifact-name.outputs.artifact-name }}
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      
+      - name: Build font
+        run: ttf::pataha
+      
+      - name: Test
+        run: ls -la ./dist
+      
+      # - uses: actions/upload-artifact@v2
+      #   with:
+      #     name: ${{ matrix.workspace }}-${{ matrix.esphome }}-${{ matrix.esphome_board }}
+      #     path: ${{ env.esphome_device_name }}/.pioenvs/${{ env.esphome_device_name }}/firmware.bin
+      
+      # - id: set-artifact-name
+      #   run: echo "::set-output name=artifact-name::${{ matrix.workspace }}-${{ matrix.esphome }}-${{ matrix.esphome_board }}"
