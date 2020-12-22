@@ -21,7 +21,7 @@ jobs:
         uses: actions/checkout@v2
       
       - name: Build font
-        uses: avivace/iosevka-build
+        uses: docker://avivace/iosevka-build
         with:
           args: ttf::pataha
       
