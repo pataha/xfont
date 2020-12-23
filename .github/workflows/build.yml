@@ -8,7 +8,9 @@ jobs:
   build:
     name: Build
     runs-on: ubuntu-20.04
-    # container: avivace/iosevka-build
+    container: 
+      image: avivace/iosevka-build
+      options: "--workdir /build"
     
     env:
       FONT_VERSION: 4.1.1
@@ -20,14 +22,18 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
       
-      - name: Build font
-        uses: docker://avivace/iosevka-build
-        with:
-          args: ttf::pataha
+      - name: Test
+        run: |
+          pwd
+          ls -la .
+      
+      # - name: Build font
+      #   uses: docker://avivace/iosevka-build
+      #   with:
+      #     args: ttf::pataha
       
       - name: Test
         run: ls -la ./dist
-      
       # - uses: actions/upload-artifact@v2
       #   with:
       #     name: ${{ matrix.workspace }}-${{ matrix.esphome }}-${{ matrix.esphome_board }}
