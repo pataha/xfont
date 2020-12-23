@@ -11,6 +11,8 @@ jobs:
     container: 
       image: avivace/iosevka-build
       options: "--workdir /build"
+      volumes:
+        - ${{ github.workspace }}:/build
     
     env:
       FONT_VERSION: 4.1.1
@@ -26,14 +28,15 @@ jobs:
         run: |
           pwd
           ls -la .
+          ls -la /build
       
       # - name: Build font
       #   uses: docker://avivace/iosevka-build
       #   with:
       #     args: ttf::pataha
       
-      - name: Test
-        run: ls -la ./dist
+      # - name: Test
+      #   run: ls -la ./dist
       # - uses: actions/upload-artifact@v2
       #   with:
       #     name: ${{ matrix.workspace }}-${{ matrix.esphome }}-${{ matrix.esphome_board }}
