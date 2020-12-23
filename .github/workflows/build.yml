@@ -36,8 +36,11 @@ jobs:
         # with:
         #   args: ttf::pataha
       
-      # - name: Test
-      #   run: ls -la ./dist
+      - name: Test
+        run: |
+          ls -la
+          ls -la /build
+
       # - uses: actions/upload-artifact@v2
       #   with:
       #     name: ${{ matrix.workspace }}-${{ matrix.esphome }}-${{ matrix.esphome_board }}
