@@ -11,7 +11,7 @@ jobs:
     # container: avivace/iosevka-build
     
     env:
-      FONT_VERSION: 0.1
+      FONT_VERSION: 4.1.1
 
     # outputs:
     #   artifact-name: ${{ steps.set-artifact-name.outputs.artifact-name }}
