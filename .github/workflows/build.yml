@@ -24,16 +24,10 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
       
-      - name: Test
-        run: |
-          pwd
-          ls -la .
-          ls -la /build
-      
-      # - name: Build font
-      #   uses: docker://avivace/iosevka-build
-      #   with:
-      #     args: ttf::pataha
+      - name: Build font
+        run: /run ttf::pataha
+        # with:
+        #   args: ttf::pataha
       
       # - name: Test
       #   run: ls -la ./dist
