@@ -34,7 +34,7 @@ jobs:
       - name: Cache build source
         uses: actions/cache@v2
         with:
-          path: /tmp/build/Iosevka${{ env.FONT_VERSION }}
+          path: /tmp/build/Iosevka-${{ env.FONT_VERSION }}
           key: font-cache-${{ env.FONT_VERSION }}
           restore-keys: font-cache-
 
