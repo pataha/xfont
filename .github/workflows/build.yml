@@ -41,9 +41,15 @@ jobs:
           path: ./Iosevka-${{ env.FONT_VERSION }}
           key: font-cache-${{ env.FONT_VERSION }}
           restore-keys: font-cache-
+      
+      - name: Test
+        run: ls -la
 
       - name: Install Node dependencies
         run: cd Iosevka-${{ env.FONT_VERSION }} && npm install
+      
+      - name: Test
+        run: ls -la
       
       - name: Copy font config
         run: cp ../private-build-plans.toml ./
