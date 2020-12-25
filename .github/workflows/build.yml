@@ -43,19 +43,23 @@ jobs:
           restore-keys: font-cache-
       
       - name: Test
-        run: ls -la
+        run: |
+          pwd
+          ls -la
 
       - name: Install Node dependencies
         run: cd Iosevka-${{ env.FONT_VERSION }} && npm install
       
       - name: Test
-        run: ls -la
+        run: |
+          pwd
+          ls -la
       
       - name: Copy font config
-        run: cp ../private-build-plans.toml ./
+        run: cp ./private-build-plans.toml ./Iosevka-${{ env.FONT_VERSION }}/
 
       - name: Build font
-        run: npm run build -- ttf::pataha
+        run: cd Iosevka-${{ env.FONT_VERSION }} && npm run build -- ttf::pataha
       
       - uses: actions/upload-artifact@v2
         with:
