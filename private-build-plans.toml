@@ -12,4 +12,13 @@ serifs = "sans"
 
     [buildPlans.pataha.variants.italic]
     f = "tailed"
-    t = "flat-hook"
+    t = "flat-hook-short-neck2"
+
+[buildPlans.pataha.widths.normal]
+shape = 576
+menu = 5
+css = "normal"
+
+  [buildPlans.pataha.slopes]
+  upright = "normal"
+  italic = "italic"
