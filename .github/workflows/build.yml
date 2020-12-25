@@ -12,11 +12,11 @@ jobs:
   build:
     name: Build
     runs-on: ubuntu-20.04
-    container: 
-      image: avivace/iosevka-build
-      options: "--workdir /build"
-      volumes:
-        - ${{ github.workspace }}:/build
+    # container: 
+    #   image: avivace/iosevka-build
+    #   options: "--workdir /build"
+    #   volumes:
+    #     - ${{ github.workspace }}:/build
     
     env:
       FONT_VERSION: 4.1.1
@@ -28,18 +28,28 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
       
-      - name: Chmod
-        run: chmod +x /run.sh
-
+      - name: Checkout
+        uses: actions/checkout@v2
+        with: 
+          repository: be5invis/Iosevka
+          ref: v${{ env.FONT_VERSION }}
+          path: Iosevka-${{ env.FONT_VERSION }}
+      
       - name: Cache build source
         uses: actions/cache@v2
         with:
-          path: /tmp/build/Iosevka-${{ env.FONT_VERSION }}
+          path: ./Iosevka-${{ env.FONT_VERSION }}
           key: font-cache-${{ env.FONT_VERSION }}
           restore-keys: font-cache-
 
+      - name: Install Node dependencies
+        run: cd Iosevka-${{ env.FONT_VERSION }} && npm install
+      
+      - name: Copy font config
+        run: cp ../private-build-plans.toml ./
+
       - name: Build font
-        run: /run.sh ttf::pataha
+        run: npm run build -- ttf::pataha
       
       - uses: actions/upload-artifact@v2
         with:
