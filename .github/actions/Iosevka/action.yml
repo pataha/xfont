@@ -12,7 +12,6 @@ inputs:
 runs:
   using: 'docker'
   image: 'Dockerfile'
-  entrypoint: npx run build -- 
+  # entrypoint: npx run build -- 
   args:
-    - ${{ inputs.type }}::${{ inputs.plan }}
-    
+    - cd Iosevka* && npx run build -- ${{ inputs.type }}::${{ inputs.plan }}
