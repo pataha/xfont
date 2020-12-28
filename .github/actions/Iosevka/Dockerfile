@@ -31,6 +31,3 @@ RUN apt-get update \
     && cd /tmp \
     && rm -rf otfcc/ otfcc.tar.gz \
     && rm -rf /var/lib/apt/lists/*
-
-RUN printenv
-RUN cd $GITHUB_WORKSPACE && ls -la
