@@ -14,5 +14,5 @@ runs:
   image: 'Dockerfile'
   entrypoint: /bin/sh -c
   args:
-    - cd $GITHUB_WORKSPACE && ls -la
+    - ls -la
     # - cd ${{ GITHUB_WORKSPACE }}/Iosevka* && npx run build -- ${{ inputs.type }}::${{ inputs.plan }}
