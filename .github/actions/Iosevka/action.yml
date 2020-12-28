@@ -1,0 +1,18 @@
+# action.yml
+name: 'Iosevka'
+description: 'Build font from https://github.com/be5invis/Iosevka'
+inputs:
+  type:  # id of input
+    description: 'The output type of the build'
+    required: true
+    default: 'ttf'
+  plan:
+    description: 'Custom plan for font build'
+    required: true
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
+  entrypoint: npx run build -- 
+  args:
+    - ${{ inputs.type }}::${{ inputs.plan }}
+    
