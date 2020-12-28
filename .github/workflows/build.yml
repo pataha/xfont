@@ -47,7 +47,10 @@ jobs:
       
       - name: Copy font config
         run: cp ./private-build-plans.toml ./Iosevka-${{ env.FONT_VERSION }}/
-      
+
+      - name: Test
+        run: ls -la .
+
       - name: Build font
         # run: cd Iosevka-${{ env.FONT_VERSION }} && npm run build -- ttf::pataha
         uses: ./.github/actions/Iosevka
