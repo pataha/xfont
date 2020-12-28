@@ -31,3 +31,5 @@ RUN apt-get update \
     && cd /tmp \
     && rm -rf otfcc/ otfcc.tar.gz \
     && rm -rf /var/lib/apt/lists/*
+
+RUN ls -la
