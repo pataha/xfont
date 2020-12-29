@@ -26,6 +26,3 @@ else
     		npm run build -- "$@"
 	fi
 fi
-
-# Copy the dist folder back to the mounted volume
-cp -r dist ./
