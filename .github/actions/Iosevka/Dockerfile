@@ -31,3 +31,7 @@ RUN apt-get update \
     && cd /tmp \
     && rm -rf otfcc/ otfcc.tar.gz \
     && rm -rf /var/lib/apt/lists/*
+
+COPY run.sh /run.sh
+
+ENTRYPOINT ["/bin/bash", "/run.sh"]
