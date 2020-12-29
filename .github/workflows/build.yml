@@ -4,9 +4,9 @@ on:
     branches:
       - master
 
-defaults:
-  run:
-    shell: bash
+# defaults:
+#   run:
+#     shell: bash
 
 jobs:
   build:
