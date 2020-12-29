@@ -12,7 +12,5 @@ inputs:
 runs:
   using: 'docker'
   image: 'Dockerfile'
-  entrypoint: "sh -c"
   args:
-    - ls -la
-    # - npm run build -- ${{ inputs.type }}::${{ inputs.plan }}
+    - npm run build -- ${{ inputs.type }}::${{ inputs.plan }}
