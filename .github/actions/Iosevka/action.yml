@@ -13,4 +13,4 @@ runs:
   using: 'docker'
   image: 'Dockerfile'
   args:
-    - npm run build -- ${{ inputs.type }}::${{ inputs.plan }}
+    - ${{ inputs.type }}::${{ inputs.plan }}
