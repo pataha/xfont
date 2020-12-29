@@ -12,6 +12,5 @@ inputs:
 runs:
   using: 'docker'
   image: 'Dockerfile'
-  # entrypoint: /bin/sh -c
   args:
     - npm run build -- ${{ inputs.type }}::${{ inputs.plan }}
