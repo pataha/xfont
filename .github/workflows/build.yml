@@ -60,7 +60,7 @@ jobs:
       - uses: actions/upload-artifact@v2
         with:
           name: font-binary
-          path: ./dist
+          path: ./Iosevka-${{ env.FONT_VERSION }}/dist
       
       - id: set-artifact-name
         run: echo "::set-output name=artifact-name::font-binary"
